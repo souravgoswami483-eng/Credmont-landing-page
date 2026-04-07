@@ -300,6 +300,18 @@ ul {
   box-shadow: 0 6px 24px rgba(7, 81, 148, 0.35);
 }
 
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(242, 101, 34, 0.25);
+}
+
+.btn-orange:hover {
+  background: #e05417; /* slightly darker orange */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(242, 101, 34, 0.35);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--navy);
@@ -888,7 +900,7 @@ ul {
 .students-track {
   display: flex;
   gap: 24px;
-  animation: marquee 30s linear infinite;
+  animation: marquee 15s linear infinite;
 }
 
 @keyframes marquee {
