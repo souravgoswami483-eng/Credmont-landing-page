@@ -8,21 +8,32 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Tabs Logic for Grades Section
-const tabs = document.querySelectorAll('.grade-tab');
+// Slider Logic for Grades Section
 const panels = document.querySelectorAll('.grade-panel');
+const prevBtn = document.getElementById('gradePrev');
+const nextBtn = document.getElementById('gradeNext');
+let currentIdx = 0;
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        // Remove active class from all tabs and panels
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
-        
-        // Add active class to clicked tab and corresponding panel
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.target).classList.add('active');
+function updateSlider() {
+    panels.forEach((panel, i) => {
+        panel.classList.toggle('active', i === currentIdx);
     });
-});
+}
+
+if (prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % panels.length;
+        updateSlider();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + panels.length) % panels.length;
+        updateSlider();
+    });
+}
+
+
+
 
 // Simple Scroll Animation (Intersection Observer)
 const observerOptions = {

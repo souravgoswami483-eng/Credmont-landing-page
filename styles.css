@@ -719,47 +719,124 @@ ul {
 /* ===== GRADES / CLASSES SECTION ===== */
 .grades-section {
   background: var(--off-white);
+  overflow: hidden;
 }
 
-.grades-tabs {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
+.grades-slider-wrapper {
+  position: relative;
 }
 
-.grade-tab {
-  padding: 12px 28px;
-  border-radius: 50px;
-  font-family: var(--font-primary);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  border: 2px solid var(--gray-200);
-  background: var(--white);
-  color: var(--gray-700);
+.grades-slider-container {
+  width: 100%;
 }
 
-.grade-tab:hover,
-.grade-tab.active {
-  background: var(--navy);
-  color: var(--white);
-  border-color: var(--navy);
+.grades-content {
+  width: 100%;
 }
 
 .grade-panel {
   display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  box-sizing: border-box;
   animation: fadeInUp 0.5s ease;
 }
 
 .grade-panel.active {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
 }
+
+.grades-nav-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+
+.slider-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--navy);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.slider-arrow:hover {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  box-shadow: var(--shadow-md);
+}
+
+.slider-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+@media (max-width: 991px) {
+  .grade-panel.active {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grade-panel.active {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .grade-image img {
+    height: 260px;
+  }
+  
+  .grade-info {
+    padding: 0 8px;
+  }
+  
+  .grade-info h3 {
+    font-size: 2rem;
+  }
+  
+  .grade-info .grade-desc {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+  
+  .grade-feature {
+    font-size: 0.85rem;
+    gap: 10px;
+  }
+  
+  .grade-features {
+    margin-bottom: 20px;
+  }
+  
+  .grade-actions {
+    flex-direction: column;
+  }
+  
+  .grade-actions .btn {
+    width: 100%;
+  }
+  
+  .grades-nav-arrows {
+    margin-top: 24px;
+  }
+}
+
+
 
 .grade-image {
   border-radius: var(--radius-lg);
@@ -1170,6 +1247,19 @@ ul {
   flex-direction: column;
   gap: 16px;
 }
+
+.about-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+@media (max-width: 480px) {
+  .about-actions {
+    flex-direction: column;
+  }
+}
+
 
 .about-highlight {
   display: flex;
@@ -2003,7 +2093,7 @@ ul {
 
   .grade-panel.active {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 28px;
   }
 
   .grade-actions {
@@ -2040,14 +2130,7 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .grades-tabs {
-    gap: 6px;
-  }
 
-  .grade-tab {
-    padding: 8px 18px;
-    font-size: 0.8rem;
-  }
 
   .banner-box {
     flex-direction: column;
@@ -2168,9 +2251,57 @@ ul {
     font-size: 0.65rem;
   }
   
-  .grade-tab {
-    padding: 8px 12px;
+  .grade-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .grade-image img {
+    height: 200px;
+  }
+  
+  .grade-info {
+    padding: 0 4px;
+  }
+  
+  .grade-info .grade-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .grade-info .grade-desc {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  
+  .grade-feature {
+    font-size: 0.78rem;
+    gap: 8px;
+  }
+  
+  .grade-feature svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .grade-features {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .grade-actions {
+    flex-direction: column;
+  }
+  
+  .grade-actions .btn {
+    width: 100%;
+    font-size: 0.78rem;
+    padding: 10px 16px;
+  }
+  
+  .grade-badge {
     font-size: 0.75rem;
+    padding: 8px 16px;
   }
 
   .popup-overlay {
